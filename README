@@ -1,3 +1,6 @@
-Wrapper for Net::Twitte
-r
+Wrapper for Net::Twitter
+
+with command line twitter clinet;
+(method search home_timeline mention)
+if you want send a tweet, use this https://github.com/azwad/Tweet 
 
