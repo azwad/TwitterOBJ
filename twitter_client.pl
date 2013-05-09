@@ -26,7 +26,7 @@ unless ( $method =~ m/^(h|m|s|search|home_timeline|mentions)$/ ){
 say 'usage: ./twitter_client.pl method (search word) num';
 say "method is 'home_timeline' 'mention' 'search'";
 say "h m s are method's alias";
-say '1 num is get 15 tweets at a time';
+say '1 num is get 15 tweets at a time (search is 20)';
 say 'ex) ./twitter_client.pl h 2';
 say encode_utf8('ex) ./twitter_client.pl search 地震 3');
 die;
