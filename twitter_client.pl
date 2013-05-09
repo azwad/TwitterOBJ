@@ -2,7 +2,6 @@
 use strict;
 use warnings;
 use TwitterOBJ;
-use feature 'say';
 use utf8;
 use Encode;
 use DateTimeEasy 'datestr';
