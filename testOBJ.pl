@@ -57,12 +57,14 @@ $opt->{twopt} = {};
 $res =  $tw->get($opt);
 
 HashDump->load($res);
+say 'search';
 pause;
+
 
 
 $opt->{method} = 'search';
 $opt->{twopt} = {
-	q => '糸魚川',
+	q => 'google',
 };
 
 $res =  $tw->get($opt);

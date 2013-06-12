@@ -86,7 +86,7 @@ for (my $ct = 1; $ct <= $last_ct; ++$ct) {
 	my $res =  $tw->get($opt);
 	
 	if ($method eq 'search' ){
-		for (@{$res->{results}}) {
+		for (@{$res->{statuses}}) {
 			my $content = {};
 			$content->{text} = $_->{text};
 			$content->{screen_name} = $_->{from_user};
@@ -116,10 +116,5 @@ for (@contents) {
  say "$num:$date: $screen_name:  $text";
  ++$num;
 }
-
-
-
-
-
 
 

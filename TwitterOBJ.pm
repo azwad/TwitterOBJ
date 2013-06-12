@@ -36,8 +36,9 @@ sub init {
 sub get {
 	my ($self, $opt) = @_;
 	my $method = $opt->{method};
+	say $method;
 	my $twopt = $opt->{twopt};
-  return $self->search($twopt) if $method eq 'search';
+  return $self->search($opt) if $method eq 'search';
 	my $pit_account = $opt->{pit_account};
 	$self->init($pit_account) unless defined $self->{nt};
 	my $nt = $self->{nt};
@@ -46,10 +47,14 @@ sub get {
 }
 
 sub search {
-	my $self = shift;
-	my $twopt = shift;
-	my $nts = Net::Twitter::Search->new;
-	my $res = $nts->search($twopt);
+	my ($self, $opt) = @_;
+	my $method = $opt->{method};
+	say $method;
+	my $twopt = $opt->{twopt};
+ 	my $pit_account = $opt->{pit_account};
+	$self->init($pit_account) unless defined $self->{nt};
+	my $nt = $self->{nt};
+	my $res = $nt->$method($twopt);
 	return $res;
 }
 1;
