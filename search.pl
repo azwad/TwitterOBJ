@@ -2,6 +2,7 @@
 use strict;
 use warnings;
 use TwitterOBJ;
+use URI::Escape;
 use feature 'say';
 use utf8;
 use Encode;
@@ -10,6 +11,7 @@ my $tw = TwitterOBJ->new;
 
 my $word = shift @ARGV;
 $word = decode_utf8($word);
+$word = uri_escape_utf8($word);
 
 my $last_ct = shift @ARGV || 1;
 #$last_ct = $last_ct -1;

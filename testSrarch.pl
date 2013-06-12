@@ -4,6 +4,7 @@ use warnings;
 use TwitterOBJ;
 use lib qw(/home/toshi/perl/lib);
 use HashDump;
+use URI::Escape;
 use feature 'say';
 use Pause;
 use utf8;
@@ -20,8 +21,10 @@ my $opt = {
 
 #my  $res = $tw->get($opt);
 
+my $searchword = 'perl';
+my $escaped = uri_escape_utf8($searchword);
 #$opt->{method} = 'search';
-#$opt->{twopt} = '糸魚川';
+$opt->{twopt} = {q => $escaped};
 
 
 my $res =  $tw->get($opt);

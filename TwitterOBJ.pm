@@ -2,7 +2,6 @@ package TwitterOBJ;
 use strict;
 use warnings;
 use Net::Twitter;
-use Net::Twitter::Search;
 use feature 'say';
 use PitInfo;
 
@@ -36,9 +35,7 @@ sub init {
 sub get {
 	my ($self, $opt) = @_;
 	my $method = $opt->{method};
-	say $method;
 	my $twopt = $opt->{twopt};
-  return $self->search($opt) if $method eq 'search';
 	my $pit_account = $opt->{pit_account};
 	$self->init($pit_account) unless defined $self->{nt};
 	my $nt = $self->{nt};
@@ -46,16 +43,5 @@ sub get {
 	return $res;
 }
 
-sub search {
-	my ($self, $opt) = @_;
-	my $method = $opt->{method};
-	say $method;
-	my $twopt = $opt->{twopt};
- 	my $pit_account = $opt->{pit_account};
-	$self->init($pit_account) unless defined $self->{nt};
-	my $nt = $self->{nt};
-	my $res = $nt->$method($twopt);
-	return $res;
-}
 1;
 

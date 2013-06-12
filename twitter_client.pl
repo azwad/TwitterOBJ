@@ -2,6 +2,7 @@
 use strict;
 use warnings;
 use TwitterOBJ;
+use URI::Escape;
 use utf8;
 use Encode;
 use DateTimeEasy 'datestr';
@@ -44,6 +45,7 @@ $method eq 'search'? say "$method $word: $last_ct times": say "method $method: $
 
 my @contents;
 my $max_id;
+$word = uri_escape_utf8($word);
 
 my $tw = TwitterOBJ->new;
 $tw->init('toshi.private');
@@ -89,7 +91,7 @@ for (my $ct = 1; $ct <= $last_ct; ++$ct) {
 		for (@{$res->{statuses}}) {
 			my $content = {};
 			$content->{text} = $_->{text};
-			$content->{screen_name} = $_->{from_user};
+			$content->{screen_name} = $_->{user}->{screen_name};
 			$content->{created_at} = $_->{created_at};
 			push @contents, $content;
 			$max_id = $_->{id};

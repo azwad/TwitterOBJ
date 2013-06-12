@@ -5,3 +5,5 @@ with command line twitter clinet;
 if you want send a tweet, use this https://github.com/azwad/Tweet 
 
 explained at http://mdwiki.azwad.com/word/TwitterOBJ
+
+Search at API v1.1: Inclueding Japanese words must be URI_Escaped
